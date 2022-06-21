@@ -2,24 +2,23 @@ import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {useNavigation} from '@react-navigation/native';
 
-const Main = () => {
+const Detail = () => {
   const navigation = useNavigation();
-
-  const goToDetail = () => {
-    navigation.navigate('Detail');
-    // navigation.push('Detail');
+  const goToMain = () => {
+    // navigation.push('Main');
+    navigation.navigate('Main');
   };
 
   return (
     <View>
-      <TouchableOpacity style={styles.button} onPress={() => goToDetail()}>
-        <Text>Go to Detail</Text>
+      <TouchableOpacity style={styles.button} onPress={() => goToMain()}>
+        <Text>Return to Main</Text>
       </TouchableOpacity>
     </View>
   );
 };
 
-export default Main;
+export default Detail;
 
 const styles = StyleSheet.create({
   button: {
