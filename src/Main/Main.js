@@ -10,10 +10,19 @@ const Main = () => {
     // navigation.push('Detail');
   };
 
+  const goToLogin = () => {
+    navigation.navigate('Login');
+    // navigation.push('Detail');
+  };
+
   return (
     <View>
       <TouchableOpacity style={styles.button} onPress={() => goToDetail()}>
         <Text>Go to Detail</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.button} onPress={() => goToLogin()}>
+        <Text>Go to Login</Text>
       </TouchableOpacity>
     </View>
   );
