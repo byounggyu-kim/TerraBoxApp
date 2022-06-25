@@ -6,6 +6,7 @@ import Detail from './src/Detail/Detail.js';
 import BackButton from './src/Components/BackButton.js';
 import NoneButton from './src/Components/NoneButton.js';
 import Login from './src/Login/Login.js';
+import Default from './src/Login/Default.js';
 
 const Stack = createNativeStackNavigator();
 
@@ -14,10 +15,16 @@ const App = () => {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
+          name="Default"
+          component={Default}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
           name="Login"
           component={Login}
           options={{
             title: '로그인',
+            headerLeft: () => <BackButton />,
           }}
         />
         <Stack.Screen
@@ -33,7 +40,7 @@ const App = () => {
           component={Detail}
           options={{
             title: '상세',
-            // headerLeft: () => <BackButton />,
+            headerLeft: () => <BackButton />,
           }}
         />
       </Stack.Navigator>

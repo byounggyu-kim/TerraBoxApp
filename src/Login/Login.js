@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
 
   inputLayout: {
     width: '80%',
-    marginBottom: 100,
+    marginBottom: 150,
   },
 
   textDecoration: {
@@ -86,20 +86,20 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 5,
     padding: 15,
-    marginBottom: 25,
+    marginBottom: 45,
   },
 
   button: {
-    backgroundColor: 'blue',
+    backgroundColor: '#27402D',
     alignItems: 'center',
     justifyContent: 'center',
     height: 50,
-    borderRadius: 5,
+    borderRadius: 10,
   },
 
   buttonText: {
     fontSize: 17,
     fontWeight: '600',
-    color: 'white',
+    color: 'whitesmoke',
   },
 });
