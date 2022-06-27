@@ -1,43 +1,26 @@
-import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
-import React from 'react';
+import {FlatList} from 'react-native';
+import React, {useState, useEffect} from 'react';
 import {useNavigation} from '@react-navigation/native';
+import Item from '../Components/Main/Item';
 
 const Main = () => {
+  const [movieList, setMovieList] = useState([]);
+  useEffect(() => {
+    fetch('http://15.164.163.31:8000/movies')
+      .then(res => res.json())
+      .then(data => setMovieList(data.result));
+  }, []);
+
   const navigation = useNavigation();
 
-  const goToDetail = () => {
-    navigation.navigate('Detail');
-    // navigation.push('Detail');
-  };
-
-  const goToLogin = () => {
-    navigation.navigate('Login');
-    // navigation.push('Detail');
-  };
-
+  const renderItem = ({item}) => <Item item={item} />;
   return (
-    <View>
-      <TouchableOpacity style={styles.button} onPress={() => goToDetail()}>
-        <Text>Go to Detail</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity style={styles.button} onPress={() => goToLogin()}>
-        <Text>Go to Login</Text>
-      </TouchableOpacity>
-    </View>
+    <FlatList
+      data={movieList}
+      renderItem={renderItem}
+      keyExtractor={item => item.id}
+    />
   );
 };
 
 export default Main;
-
-const styles = StyleSheet.create({
-  button: {
-    width: '80%',
-    height: 40,
-    marginTop: 50,
-    backgroundColor: 'ivory',
-    alignSelf: 'center',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

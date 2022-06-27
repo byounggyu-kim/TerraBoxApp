@@ -6,11 +6,12 @@ import {
   TouchableOpacity,
   TextInput,
 } from 'react-native';
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {useNavigation} from '@react-navigation/native';
 
 const Login = () => {
   const [userInfo, setUserInfo] = useState({id: '', pw: ''});
+  const [isActive, setIsActive] = useState(true);
   const navigation = useNavigation();
   const loginAuth = () => {
     if (userInfo.id === 'briankim' && userInfo.pw === 'qwerty') {
@@ -27,6 +28,18 @@ const Login = () => {
       Alert.alert('아이디 혹은 비밀번호가 일치하지 않습니다.');
     }
   };
+
+  const buttonActivation = () => {
+    if (userInfo.id.length && userInfo.pw.length) {
+      setIsActive(false);
+    } else {
+      setIsActive(true);
+    }
+  };
+
+  useEffect(() => {
+    buttonActivation();
+  }, [userInfo]);
 
   return (
     <View style={styles.white}>
@@ -50,7 +63,10 @@ const Login = () => {
           onChangeText={x => setUserInfo({id: userInfo.id, pw: x})}
           clearButtonMode="while-editing"
         />
-        <TouchableOpacity style={styles.button} onPress={() => loginAuth()}>
+        <TouchableOpacity
+          style={{...styles.button, opacity: isActive ? 0.1 : 1}}
+          onPress={() => loginAuth()}
+          disabled={isActive}>
           <Text style={styles.buttonText}>로그인하기</Text>
         </TouchableOpacity>
       </View>
