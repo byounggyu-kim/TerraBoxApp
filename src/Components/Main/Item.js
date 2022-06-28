@@ -5,7 +5,7 @@ import {useNavigation} from '@react-navigation/native';
 const Item = ({item}) => {
   const navigation = useNavigation();
   const goToDetail = () => {
-    navigation.navigate('Detail', {id: item.id});
+    navigation.navigate('Detail', {id: item.id, poster: item.stillcut_url});
   };
 
   return (
