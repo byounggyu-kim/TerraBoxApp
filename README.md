@@ -1,5 +1,5 @@
 ---
-title: 2nd 프로젝트 Terra Box
+title: 3rd 프로젝트 Terra Box
 date: 2022.06.20
 ---
 
