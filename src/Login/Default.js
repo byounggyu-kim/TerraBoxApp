@@ -6,7 +6,7 @@ import {useNavigation} from '@react-navigation/native';
 const Default = () => {
   const navigation = useNavigation();
   const goToLogin = () => {
-    navigation.navigate('Login');
+    navigation.navigate('TabNav');
   };
 
   return (
