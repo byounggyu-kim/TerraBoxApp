@@ -7,6 +7,7 @@ import BackButton from './src/Components/BackButton.js';
 import NoneButton from './src/Components/NoneButton.js';
 import Login from './src/Login/Login.js';
 import Default from './src/Login/Default.js';
+import TabNav from './TabNav.js';
 
 const Stack = createNativeStackNavigator();
 
@@ -20,19 +21,16 @@ const App = () => {
           options={{headerShown: false}}
         />
         <Stack.Screen
+          name="TabNav"
+          component={TabNav}
+          options={{gestureEnabled: false, headerShown: false}}
+        />
+        <Stack.Screen
           name="Login"
           component={Login}
           options={{
             title: '로그인',
             headerLeft: () => <BackButton />,
-          }}
-        />
-        <Stack.Screen
-          name="Main"
-          component={Main}
-          options={{
-            title: '홈',
-            headerLeft: () => <NoneButton />,
           }}
         />
         <Stack.Screen
