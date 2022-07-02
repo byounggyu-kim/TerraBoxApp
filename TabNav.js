@@ -1,10 +1,11 @@
 import {StyleSheet, Image} from 'react-native';
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import Login from './src/Login/Login';
+import Setting from './src/Setting/Setting';
 import Main from './src/Main/Main';
 import HomeIcon from './assets/home.jpeg';
 import SettingIcon from './assets/setting.jpeg';
+import CalenderIcon from './assets/calender.jpeg';
 
 const TabNav = () => {
   const Tab = createBottomTabNavigator();
@@ -29,8 +30,8 @@ const TabNav = () => {
         }}
       />
       <Tab.Screen
-        name="Login"
-        component={Login}
+        name="Setting"
+        component={Setting}
         options={{
           title: '설정',
           tabBarIcon: () => (
