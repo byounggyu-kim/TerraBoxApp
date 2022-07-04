@@ -4,20 +4,20 @@ import {useNavigation} from '@react-navigation/native';
 import HomeIcon from '../../assets/home.jpeg';
 import CalenderIcon from '../../assets/calender.jpeg';
 
-const Login = () => {
+const Mypage = () => {
   const navigation = useNavigation();
   const listArray = [
     {id: 1, content: '영화', image: HomeIcon},
     {id: 2, content: '예매', image: CalenderIcon},
   ];
 
-  const navi = x => {
-    switch (x.target) {
-      case 219:
+  const navi = id => {
+    switch (id) {
+      case 1:
         navigation.navigate('Main');
         break;
-      case 229:
-        navigation.navigate('Default');
+      case 2:
+        navigation.navigate('Booking');
     }
   };
 
@@ -33,7 +33,7 @@ const Login = () => {
           <TouchableOpacity
             key={el.id}
             style={styles.button}
-            onPress={x => navi(x.nativeEvent)}>
+            onPress={() => navi(el.id)}>
             <Image source={el.image} style={styles.iconImage} />
             <Text style={styles.buttonText}>{el.content}</Text>
           </TouchableOpacity>
@@ -43,7 +43,7 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Mypage;
 
 const styles = StyleSheet.create({
   white: {

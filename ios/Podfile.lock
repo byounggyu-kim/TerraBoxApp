@@ -326,7 +326,7 @@ PODS:
     - React-Core/RCTNetworkHeaders (= 0.68.2)
     - React-jsi (= 0.68.2)
     - ReactCommon/turbomodule/core (= 0.68.2)
-  - React-RCTSettings (0.68.2):
+  - React-RCTs (0.68.2):
     - RCT-Folly (= 2021.06.28.00-v2)
     - RCTTypeSafety (= 0.68.2)
     - React-Codegen (= 0.68.2)

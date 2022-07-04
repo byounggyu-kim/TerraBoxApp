@@ -1,4 +1,11 @@
-import {StyleSheet, Text, View, TouchableOpacity, Image} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  Image,
+  ScrollView,
+} from 'react-native';
 import React from 'react';
 
 const DetailedInfo = ({shortInfo, setShortInfo, movieData}) => {
@@ -18,11 +25,12 @@ const DetailedInfo = ({shortInfo, setShortInfo, movieData}) => {
           <Text>{shortInfo ? '더보기' : '접기'}</Text>
         </TouchableOpacity>
       </View>
-      <View style={styles.imageContainer}>
+      <Text style={styles.stillText}>스틸컷 이미지</Text>
+      <ScrollView style={styles.imageContainer} horizontal={true}>
         {stillcutList?.map(url => (
           <Image key={url} source={{uri: url}} style={styles.images} />
         ))}
-      </View>
+      </ScrollView>
     </>
   );
 };
@@ -52,11 +60,19 @@ const styles = StyleSheet.create({
 
   imageContainer: {
     flexDirection: 'row',
+    marginRight: 10,
   },
 
   images: {
-    width: '50%',
+    width: 200,
     height: 300,
     marginLeft: 10,
+  },
+
+  stillText: {
+    marginLeft: 10,
+    marginBottom: 20,
+    fontSize: 21,
+    fontWeight: '600',
   },
 });

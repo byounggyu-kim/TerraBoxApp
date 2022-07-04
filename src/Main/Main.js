@@ -15,12 +15,21 @@ const Main = () => {
 
   const renderItem = ({item}) => <Item item={item} />;
   return (
-    <FlatList
-      data={movieList}
-      renderItem={renderItem}
-      keyExtractor={item => item.id}
-    />
+    <View style={styles.white}>
+      <FlatList
+        data={movieList}
+        renderItem={renderItem}
+        keyExtractor={item => item.id}
+      />
+    </View>
   );
 };
 
 export default Main;
+
+const styles = StyleSheet.create({
+  white: {
+    backgroundColor: 'white',
+    height: '100%',
+  },
+});

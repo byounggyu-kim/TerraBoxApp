@@ -1,11 +1,13 @@
 import {StyleSheet, Image} from 'react-native';
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import Setting from './src/Setting/Setting';
+import Mypage from './src/Mypage/Mypage';
 import Main from './src/Main/Main';
 import HomeIcon from './assets/home.jpeg';
 import SettingIcon from './assets/setting.jpeg';
 import CalenderIcon from './assets/calender.jpeg';
+import MyPageIcon from './assets/mypage.png';
+import Booking from './src/Booking/Booking';
 
 const TabNav = () => {
   const Tab = createBottomTabNavigator();
@@ -20,25 +22,39 @@ const TabNav = () => {
         },
       }}>
       <Tab.Screen
-        name="Home"
+        name="Main"
         component={Main}
         options={{
           title: '메인',
           tabBarIcon: () => (
-            <Image style={{width: 30}} resizeMode="contain" source={HomeIcon} />
+            <Image style={{width: 35}} resizeMode="contain" source={HomeIcon} />
           ),
         }}
       />
       <Tab.Screen
-        name="Setting"
-        component={Setting}
+        name="Booking"
+        component={Booking}
         options={{
-          title: '설정',
+          title: '예약',
           tabBarIcon: () => (
             <Image
               style={{width: 50}}
               resizeMode="contain"
-              source={SettingIcon}
+              source={CalenderIcon}
+            />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Mypage"
+        component={Mypage}
+        options={{
+          title: '마이페이지',
+          tabBarIcon: () => (
+            <Image
+              style={{width: 25}}
+              resizeMode="contain"
+              source={MyPageIcon}
             />
           ),
         }}

@@ -1,11 +1,8 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import Main from './src/Main/Main.js';
 import Detail from './src/Detail/Detail.js';
 import BackButton from './src/Components/BackButton.js';
-import NoneButton from './src/Components/NoneButton.js';
-import Setting from './src/Setting/Setting.js';
 import Default from './src/Default/Default.js';
 import TabNav from './TabNav.js';
 
@@ -24,14 +21,6 @@ const App = () => {
           name="TabNav"
           component={TabNav}
           options={{gestureEnabled: false, headerShown: false}}
-        />
-        <Stack.Screen
-          name="Setting"
-          component={Setting}
-          options={{
-            title: '로그인',
-            headerLeft: () => <BackButton />,
-          }}
         />
         <Stack.Screen
           name="Detail"
