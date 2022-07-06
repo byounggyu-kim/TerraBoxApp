@@ -5,6 +5,8 @@ import Detail from './src/Detail/Detail.js';
 import BackButton from './src/Components/BackButton.js';
 import Default from './src/Default/Default.js';
 import TabNav from './TabNav.js';
+import RegionBooking from './src/Booking/RegionBooking';
+import TimeBooking from './src/Booking/TimeBooking';
 
 const Stack = createNativeStackNavigator();
 
@@ -27,6 +29,22 @@ const App = () => {
           component={Detail}
           options={{
             title: '상세',
+            headerLeft: () => <BackButton />,
+          }}
+        />
+        <Stack.Screen
+          name="RegionBooking"
+          component={RegionBooking}
+          options={{
+            title: '예매',
+            headerLeft: () => <BackButton />,
+          }}
+        />
+        <Stack.Screen
+          name="TimeBooking"
+          component={TimeBooking}
+          options={{
+            title: '예매',
             headerLeft: () => <BackButton />,
           }}
         />

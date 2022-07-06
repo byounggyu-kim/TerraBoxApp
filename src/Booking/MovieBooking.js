@@ -1,30 +1,18 @@
 import {StyleSheet, Text, View, FlatList, TouchableOpacity} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import MovieList from '../Components/Booking/MovieList';
+import {useNavigation} from '@react-navigation/native';
 
-const Booking = () => {
+const MovieBooking = () => {
+  const navigation = useNavigation();
   const [movieNames, setMovieNames] = useState([]);
-  const [regionLists, setRegionLists] = useState([]);
-  const [selectedMovie, setSelectedMovie] = useState({});
-  const [btnActive, setBtnActive] = useState(true);
+  const [selectedMovie, setSelectedMovie] = useState();
 
   useEffect(() => {
     fetch('http://15.164.163.31:8000/Reserve/movie')
       .then(res => res.json())
       .then(data => setMovieNames(data.movies));
   }, []);
-
-  useEffect(() => {
-    fetch('http://15.164.163.31:8000/Reserve/region')
-      .then(res => res.json())
-      .then(data => setRegionLists(data.regions));
-  }, []);
-
-  useEffect(() => {
-    if (selectedMovie !== {} && selectedMovie) {
-      setBtnActive(false);
-    }
-  }, [selectedMovie]);
 
   const renderItem = ({item}) => (
     <MovieList
@@ -33,6 +21,11 @@ const Booking = () => {
       setSelectedMovie={setSelectedMovie}
     />
   );
+
+  const goToRegion = () => {
+    setSelectedMovie();
+    navigation.navigate('RegionBooking', {selectedMovie: selectedMovie});
+  };
 
   return (
     <View style={styles.white}>
@@ -44,16 +37,16 @@ const Booking = () => {
           keyExtractor={item => item.movie_id}
         />
       </View>
-      <TouchableOpacity
-        style={[styles.button, {opacity: !btnActive ? '0.3' : '1'}]}
-        disabled={btnActive}>
-        <Text>선택하기</Text>
-      </TouchableOpacity>
+      {selectedMovie && (
+        <TouchableOpacity style={styles.button} onPress={() => goToRegion()}>
+          <Text style={styles.buttonText}>영화 선택하기</Text>
+        </TouchableOpacity>
+      )}
     </View>
   );
 };
 
-export default Booking;
+export default MovieBooking;
 
 const styles = StyleSheet.create({
   white: {
@@ -71,14 +64,22 @@ const styles = StyleSheet.create({
   table: {
     marginTop: 50,
     borderWidth: 0.5,
-    // borderRadius: 20,
     width: '90%',
     height: '60%',
   },
 
   button: {
-    width: '30%',
-    height: '20%',
-    backgroundColor: 'red',
+    width: '70%',
+    height: 40,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 40,
+    backgroundColor: '#27402D',
+  },
+
+  buttonText: {
+    color: 'white',
+    fontSize: 16,
+    fontWeight: '600',
   },
 });

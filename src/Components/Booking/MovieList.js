@@ -1,19 +1,23 @@
 import {StyleSheet, Text, Image, TouchableOpacity} from 'react-native';
 import React from 'react';
 
-const MovieList = ({item, selectedMovie, setSelectedMovie, setBtnActive}) => {
+const MovieList = ({item, selectedMovie, setSelectedMovie}) => {
   const buttonActivation = obj => {
     setSelectedMovie(obj);
   };
 
-  const yes = selectedMovie === item;
+  const userSelection = selectedMovie === item;
 
   return (
     <TouchableOpacity
-      style={[styles.singleMovie, {backgroundColor: yes ? 'gray' : 'white'}]}
+      style={[
+        styles.singleMovie,
+        {backgroundColor: userSelection ? 'gray' : 'white'},
+      ]}
       onPress={() => buttonActivation(item)}>
       <Image source={{uri: item.age_grade}} style={styles.age} />
-      <Text style={[styles.movieName, {color: yes ? 'white' : 'black'}]}>
+      <Text
+        style={[styles.movieName, {color: userSelection ? 'white' : 'black'}]}>
         {item.movie_name}
       </Text>
     </TouchableOpacity>
