@@ -7,7 +7,7 @@ import HomeIcon from './assets/home.jpeg';
 import SettingIcon from './assets/setting.jpeg';
 import CalenderIcon from './assets/calender.jpeg';
 import MyPageIcon from './assets/mypage.png';
-import Booking from './src/Booking/Booking';
+import MovieBooking from './src/Booking/MovieBooking';
 
 const TabNav = () => {
   const Tab = createBottomTabNavigator();
@@ -33,12 +33,12 @@ const TabNav = () => {
       />
       <Tab.Screen
         name="Booking"
-        component={Booking}
+        component={MovieBooking}
         options={{
-          title: '예약',
+          title: '예매',
           tabBarIcon: () => (
             <Image
-              style={{width: 50}}
+              style={{width: 35}}
               resizeMode="contain"
               source={CalenderIcon}
             />
