@@ -6,7 +6,11 @@ const TimeBooking = ({route}) => {
   const theaterData = route.params.selectedTheater;
   console.log(movieData);
   console.log(theaterData);
-  return <View style={styles.white}>{/* <Text>TimeBooking</Text> */}</View>;
+  return (
+    <View style={styles.white}>
+      <Text style={styles.timeSelect}>상영시간을 선택하세요</Text>
+    </View>
+  );
 };
 
 export default TimeBooking;
@@ -17,5 +21,11 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     height: '100%',
     alignItems: 'center',
+  },
+
+  timeSelect: {
+    fontSize: 20,
+    fontWeight: '600',
+    marginTop: 50,
   },
 });
