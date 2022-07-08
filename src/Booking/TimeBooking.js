@@ -4,8 +4,8 @@ import React from 'react';
 const TimeBooking = ({route}) => {
   const movieData = route.params.selectedMovieData;
   const theaterData = route.params.selectedTheater;
-  console.log(movieData);
-  console.log(theaterData);
+  console.log(movieData.movie_id);
+  console.log(theaterData.theater.id);
   return (
     <View style={styles.white}>
       <Text style={styles.timeSelect}>상영시간을 선택하세요</Text>
