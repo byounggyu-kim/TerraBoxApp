@@ -33,8 +33,6 @@ const Detail = ({route}) => {
   return (
     <>
       <ScrollView>
-        {/* <TouchableOpacity style={styles.button} onPress={() => goToMain()}>
-      </TouchableOpacity> */}
         <Image source={{uri: route.params.poster}} style={styles.mainImg} />
         <Text style={styles.mainTitle}>{movieData.name}</Text>
         <Text style={styles.engTitle}>{movieData.eng_name}</Text>
