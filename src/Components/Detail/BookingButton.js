@@ -1,9 +1,14 @@
 import {StyleSheet, TouchableOpacity, Text} from 'react-native';
 import React from 'react';
+import {useNavigation} from '@react-navigation/native';
 
 const BookingButton = () => {
+  const navigation = useNavigation();
+  const goToBooking = () => {
+    navigation.navigate('Booking');
+  };
   return (
-    <TouchableOpacity style={styles.button}>
+    <TouchableOpacity style={styles.button} onPress={() => goToBooking()}>
       <Text style={styles.font}>예매</Text>
     </TouchableOpacity>
   );
