@@ -1,6 +1,5 @@
 import {FlatList, View, StyleSheet} from 'react-native';
 import React, {useState, useEffect} from 'react';
-import {useNavigation} from '@react-navigation/native';
 import Item from '../Components/Main/Item';
 
 const Main = () => {
@@ -10,8 +9,6 @@ const Main = () => {
       .then(res => res.json())
       .then(data => setMovieList(data.result));
   }, []);
-
-  const navigation = useNavigation();
 
   const renderItem = ({item}) => <Item item={item} />;
   return (

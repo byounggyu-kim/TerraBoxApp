@@ -7,22 +7,14 @@ import {
   Pressable,
 } from 'react-native';
 import React, {useEffect, useState} from 'react';
-import {useNavigation} from '@react-navigation/native';
 import DetailedInfo from '../Components/Detail/DetailedInfo';
 import MovieComment from '../Components/Detail/MovieComment';
 import BookingButton from '../Components/Detail/BookingButton';
 
 const Detail = ({route}) => {
-  const navigation = useNavigation();
   const [movieData, setMovieData] = useState({});
   const [isInfo, setIsInfo] = useState(true);
   const [shortInfo, setShortInfo] = useState(true);
-
-  // 예약으로 넘어갈 때 필요함
-  // const goToMain = () => {
-  //   // navigation.push('Main');
-  //   navigation.navigate('Main');
-  // };
 
   useEffect(() => {
     fetch(`http://15.164.163.31:8000/movies/${route.params.id}`)
@@ -58,7 +50,7 @@ const Detail = ({route}) => {
           <MovieComment movieData={movieData} />
         )}
       </ScrollView>
-      <BookingButton />
+      <BookingButton selectedId={movieData.movie_id} />
     </>
   );
 };
