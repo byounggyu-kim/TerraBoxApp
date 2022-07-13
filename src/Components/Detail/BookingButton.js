@@ -5,7 +5,7 @@ import {useNavigation} from '@react-navigation/native';
 const BookingButton = ({selectedId}) => {
   const navigation = useNavigation();
   const goToBooking = () => {
-    navigation.navigate('Booking', {id: selectedId});
+    navigation.navigate('MovieBooking', {id: selectedId});
   };
 
   return (

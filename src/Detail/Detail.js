@@ -50,7 +50,7 @@ const Detail = ({route}) => {
           <MovieComment movieData={movieData} />
         )}
       </ScrollView>
-      <BookingButton selectedId={movieData.movie_id} />
+      <BookingButton selectedId={movieData.id} />
     </>
   );
 };

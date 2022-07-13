@@ -13,11 +13,14 @@ const Main = () => {
   const renderItem = ({item}) => <Item item={item} />;
   return (
     <View style={styles.white}>
-      <FlatList
-        data={movieList}
-        renderItem={renderItem}
-        keyExtractor={item => item.id}
-      />
+      <View style={styles.movies}>
+        <FlatList
+          data={movieList}
+          renderItem={renderItem}
+          keyExtractor={item => item.id}
+          horizontal={true}
+        />
+      </View>
     </View>
   );
 };
@@ -28,5 +31,11 @@ const styles = StyleSheet.create({
   white: {
     backgroundColor: 'white',
     height: '100%',
+  },
+
+  movies: {
+    marginTop: 30,
+    backgroundColor: 'yellow',
+    padding: 15,
   },
 });

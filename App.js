@@ -6,6 +6,7 @@ import BackButton from './src/Components/BackButton.js';
 import Default from './src/Default/Default.js';
 import TabNav from './TabNav.js';
 import RegionBooking from './src/Booking/RegionBooking';
+import MovieBooking from './src/Booking/MovieBooking';
 import TimeBooking from './src/Booking/TimeBooking';
 
 const Stack = createNativeStackNavigator();
@@ -29,6 +30,14 @@ const App = () => {
           component={Detail}
           options={{
             title: '상세',
+            headerLeft: () => <BackButton />,
+          }}
+        />
+        <Stack.Screen
+          name="MovieBooking"
+          component={MovieBooking}
+          options={{
+            title: '예매',
             headerLeft: () => <BackButton />,
           }}
         />

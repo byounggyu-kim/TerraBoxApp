@@ -23,7 +23,7 @@ export default Item;
 const styles = StyleSheet.create({
   item: {
     alignItems: 'center',
-    marginBottom: 80,
+    marginLeft: 20,
   },
 
   button: {
