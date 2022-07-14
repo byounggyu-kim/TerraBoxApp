@@ -57,7 +57,7 @@ const Detail = ({route}) => {
             movieData={movieData}
           />
         ) : (
-          <MovieComment movieData={movieData} />
+          <MovieComment movieData={movieData} movieId={route.params.id} />
         )}
       </ScrollView>
       <BookingButton />
