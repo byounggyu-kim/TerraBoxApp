@@ -18,18 +18,20 @@ export default BookingButton;
 
 const styles = StyleSheet.create({
   button: {
-    width: '92%',
+    width: '80%',
     height: 55,
-    backgroundColor: '#27402D',
+    borderWidth: 1,
+    borderColor: '#27402D',
     alignSelf: 'center',
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: 30,
+    borderRadius: 10,
   },
 
   font: {
     fontSize: 22,
     fontWeight: '600',
-    color: 'whitesmoke',
+    color: '#27402D',
   },
 });
