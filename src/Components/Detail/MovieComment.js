@@ -15,14 +15,12 @@ const MovieComment = ({movieData, movieId}) => {
   return (
     <>
       <View>
-        <Text>
-          {movieData.name}에 대한 {count}개의 관람평이 있어요
-        </Text>
         <TouchableOpacity
           style={styles.submit}
           onPress={() => setOpenExit(true)}>
           <Text style={styles.buttonText}>댓글 작성하러 가기</Text>
         </TouchableOpacity>
+        <Text style={styles.commentTitle}>댓글 {count}</Text>
         {comments.map(comment => (
           <View key={comment.review_id} style={styles.comment}>
             <Text style={styles.nick}>{comment.nickname}</Text>
@@ -42,15 +40,6 @@ const MovieComment = ({movieData, movieId}) => {
 export default MovieComment;
 
 const styles = StyleSheet.create({
-  input: {
-    width: '80%',
-    alignSelf: 'center',
-    borderWidth: 1,
-    padding: 10,
-    marginTop: 20,
-    marginBottom: 20,
-  },
-
   submit: {
     justifyContent: 'center',
     alignItems: 'center',
@@ -59,7 +48,6 @@ const styles = StyleSheet.create({
     height: 50,
     backgroundColor: '#27402D',
     borderRadius: 10,
-    marginTop: 20,
     marginBottom: 20,
   },
 
@@ -68,15 +56,27 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
 
+  commentTitle: {
+    fontSize: 20,
+    marginLeft: 20,
+    marginBottom: 20,
+  },
+
   comment: {
     flexDirection: 'row',
     width: '90%',
-    height: 50,
+    height: 60,
     alignSelf: 'center',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: 1,
+    marginBottom: 20,
   },
 
   nick: {
     flex: 1,
+    textAlign: 'center',
+    fontWeight: '700',
   },
 
   content: {
