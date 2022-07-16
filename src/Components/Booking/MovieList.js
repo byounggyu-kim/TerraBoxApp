@@ -6,7 +6,7 @@ const MovieList = ({item, selectedMovie, setSelectedMovie}) => {
     setSelectedMovie(obj);
   };
 
-  const userSelection = selectedMovie === item;
+  const userSelection = selectedMovie?.movie_id === item.movie_id;
 
   return (
     <TouchableOpacity

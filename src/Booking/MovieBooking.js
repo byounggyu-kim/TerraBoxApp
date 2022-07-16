@@ -3,10 +3,14 @@ import React, {useEffect, useState} from 'react';
 import MovieList from '../Components/Booking/MovieList';
 import {useNavigation} from '@react-navigation/native';
 
-const MovieBooking = () => {
+const MovieBooking = ({route}) => {
   const navigation = useNavigation();
   const [movieNames, setMovieNames] = useState([]);
-  const [selectedMovie, setSelectedMovie] = useState();
+  const [selectedMovie, setSelectedMovie] = useState(
+    {
+      movie_id: route.params?.id,
+    } && route.params,
+  );
 
   useEffect(() => {
     fetch('http://15.164.163.31:8000/Reserve/movie')

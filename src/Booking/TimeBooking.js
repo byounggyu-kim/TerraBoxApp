@@ -2,12 +2,12 @@ import {StyleSheet, Text, View} from 'react-native';
 import React, {useEffect} from 'react';
 
 const TimeBooking = ({route}) => {
-  const movieId = route.params?.selectedMovieData.movie_id;
-  const theaterId = route.params?.selectedTheater.theater_id;
+  const userMovie = route.params?.selectedMovieData;
+  const userTheater = route.params?.selectedTheater;
 
   useEffect(() => {
     fetch(
-      `http://10.58.0.92:8000/Reserve/movietheater?movie_id=${movieId}&theater_id=${theaterId}`,
+      `http://15.164.163.31:8000/Reserve/movietheater?movie_id=${userMovie.movie_id}&theater_id=${userTheater.theater_id}`,
     )
       .then(res => res.json())
       .then(data => console.log(data));
@@ -15,7 +15,9 @@ const TimeBooking = ({route}) => {
 
   return (
     <View style={styles.white}>
-      <Text style={styles.timeSelect}>상영시간을 선택하세요</Text>
+      <Text style={styles.timeSelect}>
+        테라박스 {userTheater.theater_name}의 상영시간을 선택하세요
+      </Text>
     </View>
   );
 };

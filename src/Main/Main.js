@@ -1,6 +1,5 @@
 import {FlatList, View, StyleSheet} from 'react-native';
 import React, {useState, useEffect} from 'react';
-import {useNavigation} from '@react-navigation/native';
 import Item from '../Components/Main/Item';
 
 const Main = () => {
@@ -11,16 +10,17 @@ const Main = () => {
       .then(data => setMovieList(data.result));
   }, []);
 
-  const navigation = useNavigation();
-
   const renderItem = ({item}) => <Item item={item} />;
   return (
     <View style={styles.white}>
-      <FlatList
-        data={movieList}
-        renderItem={renderItem}
-        keyExtractor={item => item.id}
-      />
+      <View style={styles.movies}>
+        <FlatList
+          data={movieList}
+          renderItem={renderItem}
+          keyExtractor={item => item.id}
+          horizontal={true}
+        />
+      </View>
     </View>
   );
 };
@@ -31,5 +31,11 @@ const styles = StyleSheet.create({
   white: {
     backgroundColor: 'white',
     height: '100%',
+  },
+
+  movies: {
+    marginTop: 30,
+    backgroundColor: 'yellow',
+    padding: 15,
   },
 });
