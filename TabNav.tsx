@@ -3,11 +3,17 @@ import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Mypage from './src/Mypage/Mypage';
 import Main from './src/Main/Main';
+import MovieBooking from './src/Booking/MovieBooking';
 import HomeIcon from './assets/home.jpeg';
 import SettingIcon from './assets/setting.jpeg';
 import CalenderIcon from './assets/calender.jpeg';
 import MyPageIcon from './assets/mypage.png';
-import MovieBooking from './src/Booking/MovieBooking';
+
+export type TabNavParamList = {
+  Main: undefined;
+  Booking: undefined;
+  Mypage: undefined;
+};
 
 const TabNav = () => {
   const Tab = createBottomTabNavigator();

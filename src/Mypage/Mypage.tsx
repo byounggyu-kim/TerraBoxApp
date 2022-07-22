@@ -1,17 +1,21 @@
 import {StyleSheet, Text, View, TouchableOpacity, Image} from 'react-native';
 import React, {useState} from 'react';
 import {useNavigation} from '@react-navigation/native';
+import {TabNavParamList} from '../../TabNav';
+import {StackNavigationProp} from '@react-navigation/stack';
 import HomeIcon from '../../assets/home.jpeg';
 import CalenderIcon from '../../assets/calender.jpeg';
 
+type MyPageStackProp = StackNavigationProp<TabNavParamList, 'Mypage'>;
+
 const Mypage = () => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<MyPageStackProp>();
   const listArray = [
     {id: 1, content: '영화', image: HomeIcon},
     {id: 2, content: '예매', image: CalenderIcon},
   ];
 
-  const navi = id => {
+  const navi = (id: number) => {
     switch (id) {
       case 1:
         navigation.navigate('Main');

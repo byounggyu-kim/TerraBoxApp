@@ -10,7 +10,7 @@ const Main = () => {
       .then(data => setMovieList(data.result));
   }, []);
 
-  const renderItem = ({item}) => <Item item={item} />;
+  const renderItem = ({item}: any) => <Item item={item} />;
   return (
     <View style={styles.white}>
       <View style={styles.movies}>
