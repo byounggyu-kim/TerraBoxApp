@@ -17,7 +17,7 @@ const Main = () => {
         <FlatList
           data={movieList}
           renderItem={renderItem}
-          keyExtractor={item => item.id}
+          keyExtractor={item => item?.id}
           horizontal={true}
         />
       </View>
