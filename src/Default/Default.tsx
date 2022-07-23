@@ -2,9 +2,13 @@ import {StyleSheet, Image, View, TouchableOpacity, Text} from 'react-native';
 import React from 'react';
 import TerraBoxIcon from '../../assets/TerraBoxLogoNewWhite.png';
 import {useNavigation} from '@react-navigation/native';
+import {StackParamList} from '../../App';
+import {StackNavigationProp} from '@react-navigation/stack';
+
+type DefaultScreenProp = StackNavigationProp<StackParamList, 'Default'>;
 
 const Default = () => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<DefaultScreenProp>();
   const goToLogin = () => {
     navigation.navigate('TabNav');
   };

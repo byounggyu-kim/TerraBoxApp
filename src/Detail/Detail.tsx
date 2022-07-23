@@ -11,7 +11,7 @@ import DetailedInfo from '../Components/Detail/DetailedInfo';
 import MovieComment from '../Components/Detail/MovieComment';
 import BookingButton from '../Components/Detail/BookingButton';
 
-const Detail = ({route}) => {
+const Detail = ({route}: any) => {
   const [movieData, setMovieData] = useState({});
   const [isInfo, setIsInfo] = useState(true);
   const [shortInfo, setShortInfo] = useState(true);
