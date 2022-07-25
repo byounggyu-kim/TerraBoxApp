@@ -10,7 +10,7 @@ import {
 import React, {useState} from 'react';
 import Xicon from '../../../assets/xicon.png';
 
-const CommentModal = ({openExit, setOpenExit, movieId}) => {
+const CommentModal = ({openExit, setOpenExit, movieId}: any) => {
   const [inputValue, setInputValue] = useState('');
   const [lengthOfInput, setLengthOfInput] = useState(0);
 
@@ -18,7 +18,7 @@ const CommentModal = ({openExit, setOpenExit, movieId}) => {
     fetch(`http://15.164.163.31:8000/movies/${movieId}/reviews`, {
       method: 'POST',
       headers: {
-        Authorization: localStorage.getItem('token'),
+        // Authorization: localStorage.getItem('token'),
       },
       body: JSON.stringify({
         content: inputValue,
@@ -31,7 +31,7 @@ const CommentModal = ({openExit, setOpenExit, movieId}) => {
       animationType="slide"
       visible={openExit}
       transparent={true}
-      onRequestClose={() => setIsOpen(prev => !prev)}
+      onRequestClose={() => setOpenExit((prev: Boolean) => !prev)}
       style={styles.modal}>
       <View style={styles.centeredView}>
         <View style={styles.modalSize}>
@@ -54,7 +54,7 @@ const CommentModal = ({openExit, setOpenExit, movieId}) => {
           <Text style={styles.textLength}>{lengthOfInput}/100</Text>
           <TouchableOpacity
             style={styles.close}
-            onPress={() => setOpenExit(prev => !prev)}>
+            onPress={() => setOpenExit((prev: Boolean) => !prev)}>
             <Image source={Xicon} style={styles.closeButton} />
           </TouchableOpacity>
         </View>

@@ -1,9 +1,13 @@
 import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {useNavigation} from '@react-navigation/native';
+import {StackParamList} from '../../../App';
+import {StackNavigationProp} from '@react-navigation/stack';
 
-const Item = ({item}) => {
-  const navigation = useNavigation();
+type DetailScreenProp = StackNavigationProp<StackParamList, 'Detail'>;
+
+const Item = ({item}: any) => {
+  const navigation = useNavigation<DetailScreenProp>();
   const goToDetail = () => {
     navigation.navigate('Detail', {id: item.id, poster: item.stillcut_url});
   };
