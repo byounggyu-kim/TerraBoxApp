@@ -8,7 +8,7 @@ type DetailScreenProp = StackNavigationProp<StackParamList, 'Detail'>;
 
 const Item = ({item}: any) => {
   const navigation = useNavigation<DetailScreenProp>();
-  const goToDetail = () => {
+  const goToDetail = (): void => {
     navigation.navigate('Detail', {id: item.id, poster: item.stillcut_url});
   };
 
