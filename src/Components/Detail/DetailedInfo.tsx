@@ -10,7 +10,6 @@ import React from 'react';
 
 const DetailedInfo = ({shortInfo, setShortInfo, movieData}) => {
   const stillcutList = movieData.stillcut_urls;
-  console.log(movieData.description);
   const splittedDescription = movieData.description?.split('\\n');
   const shortDescription = splittedDescription && splittedDescription[0];
   const fullDescription = splittedDescription?.join();
