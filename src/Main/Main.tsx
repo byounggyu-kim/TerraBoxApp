@@ -35,7 +35,6 @@ const styles = StyleSheet.create({
 
   movies: {
     marginTop: 30,
-    backgroundColor: 'yellow',
     padding: 15,
   },
 });
