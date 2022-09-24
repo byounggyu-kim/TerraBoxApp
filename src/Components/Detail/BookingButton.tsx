@@ -2,7 +2,7 @@ import {StyleSheet, TouchableOpacity, Text} from 'react-native';
 import React from 'react';
 import {useNavigation} from '@react-navigation/native';
 
-const BookingButton = ({selectedId}) => {
+const BookingButton = ({selectedId}: number) => {
   const navigation = useNavigation();
   const goToBooking = () => {
     navigation.navigate('MovieBooking', {id: selectedId});

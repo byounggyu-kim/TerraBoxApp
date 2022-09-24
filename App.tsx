@@ -1,15 +1,24 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import Detail from './src/Detail/Detail.js';
-import BackButton from './src/Components/BackButton.js';
-import Default from './src/Default/Default.js';
-import TabNav from './TabNav.js';
+import Detail from './src/Detail/Detail';
+import BackButton from './src/Components/BackButton';
+import Default from './src/Default/Default';
+import TabNav from './TabNav';
 import RegionBooking from './src/Booking/RegionBooking';
 import MovieBooking from './src/Booking/MovieBooking';
 import TimeBooking from './src/Booking/TimeBooking';
 
 const Stack = createNativeStackNavigator();
+
+export type StackParamList = {
+  Default: undefined;
+  TabNav: undefined;
+  Detail: undefined;
+  MovieBooking: undefined;
+  RegionBooking: undefined;
+  TimeBooking: undefined;
+};
 
 const App = () => {
   return (

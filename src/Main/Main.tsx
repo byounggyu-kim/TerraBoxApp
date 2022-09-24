@@ -10,14 +10,14 @@ const Main = () => {
       .then(data => setMovieList(data.result));
   }, []);
 
-  const renderItem = ({item}) => <Item item={item} />;
+  const renderItem = ({item}: any) => <Item item={item} />;
   return (
     <View style={styles.white}>
       <View style={styles.movies}>
         <FlatList
           data={movieList}
           renderItem={renderItem}
-          keyExtractor={item => item.id}
+          keyExtractor={item => item?.id}
           horizontal={true}
         />
       </View>

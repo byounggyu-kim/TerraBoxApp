@@ -11,7 +11,13 @@ import DetailedInfo from '../Components/Detail/DetailedInfo';
 import MovieComment from '../Components/Detail/MovieComment';
 import BookingButton from '../Components/Detail/BookingButton';
 
-const Detail = ({route}) => {
+type detailedProps = {
+  id: number;
+  name: string;
+  eng_name: string;
+};
+
+const Detail = ({route}: detailedProps) => {
   const [movieData, setMovieData] = useState({});
   const [isInfo, setIsInfo] = useState(true);
   const [shortInfo, setShortInfo] = useState(true);
@@ -20,7 +26,7 @@ const Detail = ({route}) => {
     fetch(`http://15.164.163.31:8000/movies/${route.params.id}`)
       .then(res => res.json())
       .then(data => setMovieData(data.result));
-  }, []);
+  }, [route.params.id]);
 
   return (
     <>
