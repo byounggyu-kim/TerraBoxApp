@@ -11,6 +11,7 @@ const Main = () => {
   }, []);
 
   const renderItem = ({item}: any) => <Item item={item} />;
+
   return (
     <View style={styles.white}>
       <View style={styles.movies}>
