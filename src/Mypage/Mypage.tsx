@@ -1,5 +1,5 @@
 import {StyleSheet, Text, View, TouchableOpacity, Image} from 'react-native';
-import React, {useState} from 'react';
+import React from 'react';
 import {useNavigation} from '@react-navigation/native';
 import {TabNavParamList} from '../../TabNav';
 import {StackNavigationProp} from '@react-navigation/stack';

@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import React from 'react';
 
-const DetailedInfo = ({shortInfo, setShortInfo, movieData}) => {
+const DetailedInfo = ({shortInfo, setShortInfo, movieData}: any) => {
   const stillcutList = movieData.stillcut_urls;
   const splittedDescription = movieData.description?.split('\\n');
   const shortDescription = splittedDescription && splittedDescription[0];
