@@ -32,7 +32,11 @@ const TabNav = () => {
         options={{
           title: '메인',
           tabBarIcon: () => (
-            <Image style={{width: 35}} resizeMode="contain" source={HomeIcon} />
+            <Image
+              style={styles.footerIcon}
+              resizeMode="contain"
+              source={HomeIcon}
+            />
           ),
         }}
       />
