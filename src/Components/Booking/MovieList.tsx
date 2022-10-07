@@ -12,7 +12,7 @@ const MovieList = ({item, selectedMovie, setSelectedMovie}) => {
     <TouchableOpacity
       style={[
         styles.singleMovie,
-        {backgroundColor: userSelection ? 'gray' : 'white'},
+        {backgroundColor: userSelection ? 'grey' : 'white'},
       ]}
       onPress={() => buttonActivation(item)}>
       <Image source={{uri: item.age_grade}} style={styles.age} />

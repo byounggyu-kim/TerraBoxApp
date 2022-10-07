@@ -32,7 +32,11 @@ const TabNav = () => {
         options={{
           title: '메인',
           tabBarIcon: () => (
-            <Image style={{width: 35}} resizeMode="contain" source={HomeIcon} />
+            <Image
+              style={styles.footerIcon}
+              resizeMode="contain"
+              source={HomeIcon}
+            />
           ),
         }}
       />
@@ -70,4 +74,8 @@ const TabNav = () => {
 
 export default TabNav;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  footerIcon: {
+    width: 35,
+  },
+});
