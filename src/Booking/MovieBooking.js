@@ -28,7 +28,7 @@ const MovieBooking = ({route}) => {
 
   const goToRegion = () => {
     setSelectedMovie();
-    navigation.navigate('RegionBooking', {selectedMovie: selectedMovie});
+    navigation.navigate('RegionBooking', {selectedMovie});
   };
 
   return (
@@ -41,10 +41,12 @@ const MovieBooking = ({route}) => {
           keyExtractor={item => item.movie_id}
         />
       </View>
-      {selectedMovie && (
+      {selectedMovie ? (
         <TouchableOpacity style={styles.button} onPress={() => goToRegion()}>
           <Text style={styles.buttonText}>영화 선택하기</Text>
         </TouchableOpacity>
+      ) : (
+        <></>
       )}
     </View>
   );

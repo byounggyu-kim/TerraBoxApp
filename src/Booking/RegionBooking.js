@@ -37,8 +37,8 @@ const RegionBooking = ({route}) => {
   const goToTime = () => {
     setSelectedRegion();
     navigation.navigate('TimeBooking', {
-      selectedMovieData: selectedMovieData,
-      selectedTheater: selectedTheater,
+      selectedMovieData,
+      selectedTheater,
     });
   };
 
@@ -64,10 +64,12 @@ const RegionBooking = ({route}) => {
           />
         </View>
       </View>
-      {selectedTheater && (
+      {selectedTheater ? (
         <TouchableOpacity style={styles.button} onPress={() => goToTime()}>
           <Text style={styles.buttonText}>영화관 선택하기</Text>
         </TouchableOpacity>
+      ) : (
+        <></>
       )}
     </View>
   );
